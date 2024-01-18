@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  listen:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: listen-service:local
+    container_name: listen
+    depends_on:
+      - storage
+    ports:
+      - "127.0.0.1:1234:1234"
+    networks:
+      - web-net
+
+  storage:
+    image: postgres
+    container_name: storage
+    environment:
+      POSTGRES_DB: users
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin123
+    volumes:
+      - ./data:/var/lib/storage/data
+    networks:
+      - web-net
+
+networks:
+  web-net:
+    driver: bridge
