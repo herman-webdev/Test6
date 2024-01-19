@@ -17,7 +17,7 @@ This test task involves creating a user with augmented data from three different
 {
     "name": "Vitalik",
     "surname": "Buterin",
-    "patronymic": "can be bull"
+    "patronymic": "can be null"
 }
 ```
 - GET: http://localhost:1234/users/:uuid
