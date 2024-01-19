@@ -25,6 +25,22 @@ services:
       - ./data:/var/lib/storage/data
     networks:
       - web-net
+    healthcheck:
+      test: pg_isready -U postgres -d users
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  migrate:
+    image: migrate/migrate
+    networks:
+      - web-net
+    volumes:
+      - ./schema:/schema
+    depends_on:
+      storage:
+        condition: service_healthy
+    command: ["-path", "./schema", "-database", "postgres://postgres:admin123@storage:5432/users?sslmode=disable", "up"]
 
 networks:
   web-net:
