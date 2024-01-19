@@ -11,7 +11,8 @@
 This test task involves creating a user with augmented data from three different open APIs. There are also methods to retrieve all created users with sorting, to retrieve user by id, also update user fields and delete
 
 ### Endpoints
-- GET: http://localhost:1234/users?sort_by=name&sort_order=asc
+- GET: http://localhost:1234/users (all users)
+- GET: http://localhost:1234/users?sort_by=name&sort_order=asc (asc/desc)
 - POST: http://localhost:1234/users
 ```json
 {
