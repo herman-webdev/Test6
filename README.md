@@ -13,6 +13,7 @@ This test task involves creating a user with augmented data from three different
 ### Endpoints
 - GET: http://localhost:1234/users (all users)
 - GET: http://localhost:1234/users?sort_by=name&sort_order=asc (you can sort by all fields: name, age... asc/desc)
+> http://localhost:1234/users?sort_by=surname&age&sort_order=asc (sort by surname and age)
 - POST: http://localhost:1234/users
 ```json
 {
